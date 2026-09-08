@@ -1,0 +1,13 @@
+# Bases de dados pesadas
+data/raw/*.csv
+data/processed/*.csv
+*.csv
+
+# Python e ambientes virtuais
+__pycache__/
+*.py[cod]
+venv/
+.env
+
+# Jupyter Notebook
+.ipynb_checkpoints/
