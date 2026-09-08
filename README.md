@@ -3,7 +3,7 @@
 ## Perguntas de Negócio
 
 | Nº | Pergunta de Negócio | Campos Necessários | Visual Sugerido | KPI Associado |
-|---|---|---|---|---|
+| --- | --- | --- | --- | --- |
 | 1 | Qual foi a evolução anual do valor total registrado nas compras em saúde? | `ano_compra`, `preco_total` | Gráfico de Linhas | Valor total registrado |
 | 2 | Quais Unidades Federativas (UF) concentram o maior montante financeiro? | `uf`, `preco_total` | Gráfico de Barras / Mapa | Valor total registrado |
 | 3 | Quais instituições compradoras realizaram os maiores volumes de aquisição? | `nome_instituicao`, `preco_total` | Gráfico de Barras Horizontais | Valor total registrado |
