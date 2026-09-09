@@ -1,6 +1,7 @@
 # Relatório de Qualidade de Dados e Consolidação - BPS (2020 - 2026)
 
 ## 1. Diagnóstico Estrutural dos Arquivos Brutos
+
 A inspeção automatizada realizada via script Python (`src/inspecionar_colunas.py`) nos 7 arquivos anuais do Banco de Preços em Saúde (BPS) resultou no seguinte mapeamento:
 
 - **Período avaliado:** 2020 a 2026 (7 arquivos anuais).
@@ -10,6 +11,7 @@ A inspeção automatizada realizada via script Python (`src/inspecionar_colunas.
 - **Identificador de Origem:** A coluna `ano_compra` já existe nativamente nas bases.
 
 ## 2. Relação de Colunas Mapeadas (25 Colunas)
+
 1. `ano_compra`
 2. `nome_instituicao`
 3. `esfera`
@@ -37,8 +39,9 @@ A inspeção automatizada realizada via script Python (`src/inspecionar_colunas.
 25. `preco_total`
 
 ## 3. Contagem de Linhas por Arquivo Bruto
+
 | Ano do Arquivo | Linhas Carregadas |
-|---|---|
+| --- | --- |
 | `bps_2020.csv` | 84.819 |
 | `bps_2021.csv` | 83.622 |
 | `bps_2022.csv` | 88.991 |
@@ -49,6 +52,7 @@ A inspeção automatizada realizada via script Python (`src/inspecionar_colunas.
 | **Total Bruto Acumulado** | **342.716** |
 
 ## 4. Tratamentos e Limpeza Aplicados
+
 - **Padronização de Cabeçalhos:** Conversão para caixa baixa, remoção de acentuação e substituição de espaços por sublinhados (`_`).
 - **Valores Monetários (`preco_total`, `preco_unitario`):** Limpeza do símbolo `R$`, remoção de pontos de milhar e substituição de vírgula decimal por ponto, convertendo os campos em `float`.
 - **Quantidades (`qtd_itens_comprados`):** Remoção de separadores e conversão segura para formato numérico (`float`).
@@ -57,6 +61,7 @@ A inspeção automatizada realizada via script Python (`src/inspecionar_colunas.
 - **Deduplicação:** Remoção de duplicidades completas entre registros.
 
 ## 5. Balanço Final da Consolidação
+
 - **Total de linhas brutas:** 342.716
 - **Duplicidades eliminadas:** 19
 - **Total de registros na base final:** 342.697
