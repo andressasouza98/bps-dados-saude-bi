@@ -28,3 +28,36 @@ O pipeline de extração, transformação e carga foi implementado em Python (`s
 4. **Tratamento de Nulos e Inconsistências:** Imputação do rótulo `'Não Informado'` em atributos categóricos com valores ausentes.
 5. **Deduplicação:** Remoção de 19 registros duplicados na integridade da linha.
 6. **Consolidação Final:** Preservação da rastreabilidade temporal (`ano_compra`) e exportação da base unificada `BPS_20_26_AndressaAlvesDeSouza.csv` contendo 342.697 linhas e 25 colunas.
+
+## 📈 Métricas de Negócio e Gabarito Oficial de KPIs (Sprint 3)
+
+Os cálculos foram consolidados via Python (`src/calcular_kpis_eda.py`) sobre os 342.697 registros unificados:
+
+| Indicador (KPI) | Fórmula / Critério | Valor Consolidado |
+| --- | --- | --- |
+| **Total de Registros de Compra** | Contagem total de linhas da base tratada | `342.697` |
+| **Valor Total Registrado** | Soma do campo `preco_total` | `R$ 78.557.477.974,09` |
+| **Quantidade Total de Itens** | Soma do campo `qtd_itens_comprados` | `57.127.143.721` unidades |
+| **Instituições Compradoras Únicas** | Contagem distinta de `cnpj_instituicao` | `831` entidades |
+| **Fornecedores Distintos** | Contagem distinta de `cnpj_fornecedor` | `3.502` fornecedores |
+| **Preço Unitário Médio Ponderado** | `Soma(preco_total) / Soma(qtd_itens_comprados)` | `R$ 1,3751` |
+
+### Destaques Regionais (Top 5 UFs)
+
+- **PR:** R$ 29,18 bi (37,14%)
+- **SP:** R$ 25,37 bi (32,30%)
+- **CE:** R$ 5,40 bi (6,87%)
+- **RJ:** R$ 5,16 bi (6,57%)
+- **SC:** R$ 1,94 bi (2,47%)
+
+### 💡 Principais Insights da Análise Exploratória (EDA)
+
+- **Pico Financeiro em 2025:** Apesar de contabilizar 26.214 registros (volume inferior aos anos de 2020 a 2022), o ano de 2025 concentrou R$ 34,93 bilhões (44,5% do total registrado no período), indicando contratações públicas de grande vulto ou itens de elevado valor agregado.
+- **Concentração Geográfica Expressiva:** As regiões Sul e Sudeste lideram os montantes acumulados:
+  - **Paraná (PR):** Líder nacional com R$ 29,18 bilhões (37,14%).
+  - **São Paulo (SP):** R$ 25,37 bilhões (32,30%).
+  - **Ceará (CE):** R$ 5,40 bilhões (6,87%).
+  - **Rio de Janeiro (RJ):** R$ 5,16 bilhões (6,57%).
+  - **Santa Catarina (SC):** R$ 1,94 bilhões (2,47%).
+  - *PR e SP somam, juntos, quase 70% de todo o recurso movimentado no período avaliado.*
+- **Período Parcial de 2026:** Apresenta 817 registros e R$ 419,37 milhões, refletindo a extração parcial do ano corrente.

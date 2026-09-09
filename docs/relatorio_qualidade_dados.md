@@ -67,3 +67,28 @@ A inspeção automatizada realizada via script Python (`src/inspecionar_colunas.
 - **Total de registros na base final:** 342.697
 - **Total de colunas:** 25
 - **Arquivo de saída gerado:** `data/processed/BPS_20_26_AndressaAlvesDeSouza.csv`
+
+## 6. Gabarito de Indicadores Oficiais (2020 a 2026)
+
+Consolidação realizada via script analítico (`src/calcular_kpis_eda.py`):
+
+| Indicador | Métrica Aplicada | Valor Consolidado |
+| --- | --- | --- |
+| **Total de Registros de Compra** | Contagem total de linhas da base tratada | `342.697` |
+| **Valor Total Registrado** | Soma do campo `preco_total` | `R$ 78.557.477.974,09` |
+| **Quantidade Total de Itens** | Soma do campo `qtd_itens_comprados` | `57.127.143.721` unidades |
+| **Instituições Compradoras Únicas** | Contagem distinta de `cnpj_instituicao` | `831` entidades |
+| **Fornecedores Distintos** | Contagem distinta de `cnpj_fornecedor` | `3.502` fornecedores |
+| **Preço Unitário Médio Ponderado** | `Soma(preco_total) / Soma(qtd_itens_comprados)` | `R$ 1,3751` |
+
+## 7. Principais Insights da Análise Exploratória (EDA)
+
+- **Pico Financeiro em 2025:** Apesar de contabilizar 26.214 registros (volume inferior aos anos de 2020 a 2022), o ano de 2025 concentrou R$ 34,93 bilhões (44,47% do total registrado em todo o período), apontando aquisições centralizadas de elevado valor agregado ou grandes contratos de fornecimento.
+- **Concentração Geográfica Expressiva:**
+  - **Paraná (PR):** Líder nacional com R$ 29,18 bilhões (37,14%).
+  - **São Paulo (SP):** R$ 25,37 bilhões (32,30%).
+  - **Ceará (CE):** R$ 5,40 bilhões (6,87%).
+  - **Rio de Janeiro (RJ):** R$ 5,16 bilhões (6,57%).
+  - **Santa Catarina (SC):** R$ 1,94 bilhões (2,47%).
+  - *Os estados do Paraná e de São Paulo respondem juntos por aproximadamente 69,4% de todo o recurso movimentado no banco de preços.*
+- **Evolução Temporal e Cobertura de 2026:** Os dados de 2026 contabilizam 817 registros e R$ 419,37 milhões, representando uma base parcial em consolidação referente ao exercício corrente.
