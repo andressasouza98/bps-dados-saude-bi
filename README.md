@@ -61,3 +61,11 @@ Os cálculos foram consolidados via Python (`src/calcular_kpis_eda.py`) sobre os
   - **Santa Catarina (SC):** R$ 1,94 bilhões (2,47%).
   - *PR e SP somam, juntos, quase 70% de todo o recurso movimentado no período avaliado.*
 - **Período Parcial de 2026:** Apresenta 817 registros e R$ 419,37 milhões, refletindo a extração parcial do ano corrente.
+
+### 📐 Modelagem e Regras de Agregação
+
+- **Métricas Financeiras e Físicas:** Agregação via `SUM` para `preco_total` e `qtd_itens_comprados`.
+- **Rigor Metodológico de Preço:** Proibição estrita da soma direta de `preco_unitario`. O indicador oficial de preço unitário é mensurado pela **Média Ponderada** (`SUM(preco_total) / SUM(qtd_itens_comprados)`).
+- **Entidades Únicas:** Mensuradas exclusivamente via `COUNT_DISTINCT` para `cnpj_instituicao` e `cnpj_fornecedor`.
+- **Benchmark de Preços:** Comparações condicionadas à correspondência exata de `descricao_catmat` e `unidade_fornecimento`.
+- *Documentação completa disponível em [`docs/modelagem_e_metricas.md`](docs/modelagem_e_metricas.md).*
