@@ -2,6 +2,8 @@
 data/raw/*.csv
 data/processed/*.csv
 *.csv
+*.parquet
+*.gz
 
 # Python e ambientes virtuais
 __pycache__/
