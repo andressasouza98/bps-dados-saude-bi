@@ -122,32 +122,29 @@ O painel foi construído no Google Looker Studio seguindo diretrizes executivas 
 
 🔗 **Link de Acesso Direto:** [Acessar Dashboard no Looker Studio](https://datastudio.google.com/reporting/f1bbcd6c-511a-4473-9f59-332390b48060)
 
-* 🎥 **Vídeo de Apresentação (Máx. 5 min):** [Assistir ao Vídeo no Google Drive](https://drive.google.com/file/d/1YKBxUPO4VNwha2uoiSmglqEqszzqKtZp/view?usp=sharing)
+- 🎥 **Vídeo de Apresentação (Máx. 5 min):** [Assistir ao Vídeo no Google Drive](https://drive.google.com/file/d/1YKBxUPO4VNwha2uoiSmglqEqszzqKtZp/view?usp=sharing)
+
 ### Estrutura Visual em Duas Páginas
 
 #### Página 1: Visão Estratégica e Panorama Macro
 
-- **Barra Superior:** Controles de filtros globais (`ano_compra`, `uf`, `descricao_catmat`).
-
-- **Cartões de KPIs:** *Gasto Total*, *Quantidade de Itens*, *Transações Totais* e *Preço Ponderado*.
-- **Gráfico Temporal:** Linhas com eixo duplo correlacionando evolução do Gasto Total (R$) vs. Volume Físico.
+- **Barra Superior:** Controles de filtros dinâmicos (`ano_compra`, `uf`, `esfera`, `descricao_catmat`).
+- **Cartões de KPIs:** *Gasto Total*, *Quantidade de Itens*, *Registros Totais*, *Instituições*, *Fornecedores* e *Preço Médio Ponderado*.
+- **Gráfico Temporal:** Linhas com eixo duplo correlacionando Gasto Total (R$) vs. Volume Físico.
 - **Distribuição Federativa:** Barras ordenadas por volume orçamentário por Unidade Federativa.
 - **Estrutura Federativa:** Tabela analítica detalhando Gasto e % de Representatividade por Esfera.
-- **Detalhamento CATMAT:** Tabela dinâmica dos Top Medicamentos e Insumos por Gasto e Preço Unitário.
+- **Detalhamento CATMAT:** Tabela dinâmica dos Top Medicamentos e Insumos por Gasto Total.
 
-![Página 1 - Visão Macro](imagens/dashboard_pagina_1.png)
+![Página 1 - Visão Macro](dashboard/imagens_dashboard/dashboard_pagina_1/dashboard_imagem_01.3.png)
 
 #### Página 2: Operacional, Fornecedores e Modalidades
 
-- **Top Fornecedores Homologados:** Ranking em barras horizontais dos maiores distribuidores por CNPJ.
-
+- **Top Fornecedores Homologados:** Ranking em barras dos maiores distribuidores por CNPJ.
 - **Modalidades de Contratação:** Gráfico de rosca evidenciando a hegemonia do Pregão vs. contratações diretas.
 - **Maiores Instituições Compradoras:** Tabela com barras de volume financeiro alocado pelos órgãos.
-- **Dinâmica de Fabricantes:** Gráfico de dispersão em escala bi-logarítmica correlacionando Volume Adquirido vs. Preço Unitário Médio por fabricante, expondo a variabilidade de mercado.
+- **Dinâmica de Fabricantes & Dispersão:** Gráfico de dispersão em escala logarítmica correlacionando Volume Adquirido vs. Preço Unitário Médio por fabricante, expondo assimetrias de mercado.
 
-![Página 2 - Suprimentos](imagens/dashboard_pagina_2.png)
-
----
+![Página 2 - Suprimentos](dashboard/imagens_dashboard/dashboard_pagina_2/dashboard_imagem_02.3.png)
 
 ## 🔍 Principais Análises e Descobertas (Sprint 5)
 
@@ -187,20 +184,47 @@ O painel foi construído no Google Looker Studio seguindo diretrizes executivas 
 ### 2. Estrutura de Diretórios Recomendada
 
 ```text
-bps-analytics/
-├── README.md
-├── requirements.txt
+bps-dados-saude-bi/
+├── dashboard/
+│   ├── link_dashboard.txt             # Link oficial do painel Looker Studio
+│   └── imagens_dashboard/             # Capturas de tela do painel
+│       ├── dashboard_pagina_1/
+│       │   ├── dashboard_imagem_01.1.png
+│       │   ├── dashboard_imagem_01.2.png
+│       │   └── dashboard_imagem_01.3.png
+│       └── dashboard_pagina_2/
+│           ├── dashboard_imagem_02.1.png
+│           ├── dashboard_imagem_02.2.png
+│           └── dashboard_imagem_02.3.png
 ├── data/
-│   ├── raw/                       # Bases anuais brutas baixadas (2020 a 2026)
-│   └── processed/                 # Base consolidada e saneada (CSV)
+│   ├── processed/
+│   │   ├── BPS_20_26_AndressaAlvesDeSouza.csv  # Base tratada oficial homologada
+│   │   └── bps_consolidado.parquet             # Arquivo colunar otimizado
+│   └── raw/                           # Microdados anuais brutos do BPS (2020 a 2026)
+│       ├── bps_2020.csv
+│       ├── bps_2021.csv
+│       ├── bps_2022.csv
+│       ├── bps_2023.csv
+│       ├── bps_2024.csv
+│       ├── bps_2025.csv
+│       └── bps_2026.csv
 ├── docs/
-│   └── modelagem_e_metricas.md    # Dicionário de modelagem técnica
-├── imagens/
-│   ├── dashboard_pagina_1.png     # Captura de tela da Página 1
-│   └── dashboard_pagina_2.png     # Captura de tela da Página 2
-└── src/
-    ├── preparar_bps.py            # Script ETL de saneamento e concatenação
-    └── calcular_kpis_eda.py       # Script de apuração de KPIs e validação estatística
+│   ├── dicionario_de_dados.md         # Mapeamento técnico e tipos de dados
+│   ├── guia_looker_studio.md          # Guia de construção e métricas no Looker
+│   ├── modelagem_e_metricas.md        # Documentação estatística dos KPIs
+│   └── relatorio_qualidade_dados.md   # Relatório de auditoria e saneamento
+├── notebooks/
+│   └── notebook_bps_analise.ipynb     # Notebook Jupyter com fluxo completo (Sprints 1 a 6)
+├── src/
+│   ├── calcular_kpis_eda.py           # Validação estatística e apuração dos KPIs
+│   ├── carregar_bigquery.py           # Pipeline opcional de carga no BigQuery
+│   ├── inspecionar_colunas.py         # Auditoria de delimitadores e codificações
+│   └── preparar_bps.py                # Pipeline ETL de limpeza e unificação
+├── video/
+│   └── link_video.txt                 # Link público da gravação da apresentação
+├── .gitignore
+├── README.md
+└── requirements.txt
 ```
 
 ### 3. Instalação e Execução do Pipeline
