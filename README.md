@@ -122,6 +122,7 @@ O painel foi construído no Google Looker Studio seguindo diretrizes executivas 
 
 🔗 **Link de Acesso Direto:** [Acessar Dashboard no Looker Studio](https://datastudio.google.com/reporting/f1bbcd6c-511a-4473-9f59-332390b48060)
 
+* 🎥 **Vídeo de Apresentação (Máx. 5 min):** [Assistir ao Vídeo no Google Drive](https://drive.google.com/file/d/1YKBxUPO4VNwha2uoiSmglqEqszzqKtZp/view?usp=sharing)
 ### Estrutura Visual em Duas Páginas
 
 #### Página 1: Visão Estratégica e Panorama Macro
